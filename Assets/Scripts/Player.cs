@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour , IKitchenObjectParent
 {
     public static Player Instance {get; private set;}
     public event EventHandler <OnSelectedCounterChangedEventArgs>OnSelectedCounterChanged;
@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
     
     private Vector3 lastInteractPosition;
     
+    private KitchenObject kitchenObject;
+    [SerializeField]private Transform spawnPoint;
+    
     
     [SerializeField] private GameInput gameInput;
 
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
        
             if (selectedClearCounter != null)
             {
-                selectedClearCounter.Interact();
+                selectedClearCounter.Interact(this);
             }
         
     }
@@ -149,4 +152,31 @@ public class Player : MonoBehaviour
             OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs { selectedCounter = selectedClearCounter });
         }
     }
+
+    public Transform GetKitchenObjectFollowTransform()
+    {
+        return spawnPoint;
+    }
+
+    public void SetKitchenObject(KitchenObject kitchenObject)
+    {
+        this.kitchenObject = kitchenObject;
+    }
+
+    public KitchenObject GetKitchenObject()
+    {
+        return kitchenObject;
+    }
+
+    public void ClearKitchenObject()
+    {
+        kitchenObject = null;
+    }
+
+    public bool HasKitchenObject()
+    {
+        return kitchenObject != null;
+    }
+
+   
 }

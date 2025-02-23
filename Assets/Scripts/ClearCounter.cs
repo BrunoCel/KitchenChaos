@@ -2,42 +2,56 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : MonoBehaviour, IKitchenObjectParent
 {
    [SerializeField] private KitchenObjectSO KitchenObjectSO;
    [SerializeField] private Transform spawnPoint;
-   [SerializeField] private ClearCounter secondClearCounter;
-   [SerializeField] private bool test;
    
    private KitchenObject kitchenObject;
 
    private void Update()
    {
-      if (test && Input.GetKeyDown(KeyCode.T))
-      {
-         if (kitchenObject != null)
-         {
-            kitchenObject.SetClearCounter(secondClearCounter);
-            Debug.Log(kitchenObject.GetClearCounter().name);
-         }
-      }
+      
    }
 
-   public void Interact()
+   public void Interact(Player player)
    {
       if (kitchenObject == null)
       {
          Transform kitchenObjectTransform = Instantiate(KitchenObjectSO.prefab, spawnPoint);
-         kitchenObjectTransform.localPosition = Vector3.zero;
-
-         kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-         kitchenObject.SetClearCounter(this);
+         kitchenObjectTransform.GetComponent<KitchenObject>().SetKitcheObjectParent(this);
          
       }
       else
       {
-         Debug.Log(kitchenObject.GetClearCounter() + "is full");
+        kitchenObject.SetKitcheObjectParent(player);
       }
+   }
+
+   public Transform GetKitchenObjectFollowTransform()
+   {
+      return spawnPoint;
+   }
+
+   public void SetKitchenObject(KitchenObject kitchenObject)
+   {
+      this.kitchenObject = kitchenObject;
+   }
+
+   public KitchenObject GetKitchenObject()
+   {
+      return kitchenObject;
+   }
+
+   public void ClearKitchenObject()
+   {
+      kitchenObject = null;
+   }
+
+   public bool HasKitchenObject()
+   {
+      return kitchenObject != null;
    }
 }
