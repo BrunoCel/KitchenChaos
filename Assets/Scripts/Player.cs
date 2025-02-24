@@ -9,7 +9,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
 
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
     
     [SerializeField] private float walkingVelocity = 5.0f;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private LayerMask interactableLayers;
     
-    private ClearCounter selectedClearCounter;
+    private BaseCounter selectedClearCounter;
 
     private float _rotationSpeed = 20f;
 
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
             // can not move foward 
             //attempt to move on x axis
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0 , 0).normalized;
-            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionX, moveDistance);
+            canMove = moveDirection.x!=0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionX, moveDistance);
 
             if (canMove)
             {
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
                 // can not move foward or x axis
                 //attempt to move on z axis
                 Vector3 moveDirectionZ = new Vector3(0, 0 , moveDirection.z).normalized;
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionZ, moveDistance);
+                canMove = moveDirection.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionZ, moveDistance);
                 if (canMove)
                 {
                     moveDirection = moveDirectionZ;
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
 
         if (Physics.Raycast(transform.position,lastInteractPosition, out RaycastHit raycastHit, interactDistance, interactableLayers))
         {
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (raycastHit.transform.TryGetComponent(out BaseCounter clearCounter))
             {
                 if (clearCounter != selectedClearCounter)
                 {
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
              SetSelectedCounter(null);
         }
 
-        void SetSelectedCounter(ClearCounter selectedCounter)
+        void SetSelectedCounter(BaseCounter selectedCounter)
         {
             this.selectedClearCounter = selectedCounter;
             OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs { selectedCounter = selectedClearCounter });

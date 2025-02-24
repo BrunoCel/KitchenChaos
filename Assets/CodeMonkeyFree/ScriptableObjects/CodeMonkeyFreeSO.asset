@@ -14,39 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1740267338
+  lastShownTimestamp: 1740406468
   lastUpdateResponse:
     version: 1.00
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1740267338
+  checkedLastUpdateTimestamp: 1740406468
   lastQOTDResponse:
-    questionId: 153
-    questionText: 'When would this code cause an error?
-
-      <p>Building closest
-      = null;</p>
-
-      <p>for (int i = 0; i &lt; instanceList.Count; i++) {</p>
-
-      <p>&nbsp;
-      &nbsp; if (Vector3.Distance(position, instanceList[i].GetPosition()) &lt; Vector3.Distance(position,
-      closest.GetPosition())) {</p>
-
-      <p>&nbsp; &nbsp; &nbsp; &nbsp; closest
-      = instanceList[i];</p>
-
-      <p>&nbsp; &nbsp; }</p>
-
-      <p>}</p>
-
-      <p>return
-      closest;</p>'
-    answerA: When instanceList is empty
-    answerB: When instanceList has at least one element
-    answerC: When instanceList has exactly two elements
-    answerD: 
+    questionId: 154
+    questionText: What is the orthographicSize in a 2D camera?
+    answerA: Units visible horizontally
+    answerB: Units visible vertically
+    answerC: Half the units visible horizontally
+    answerD: Half the units visible vertically
     answerE: 
-  lastQotdTimestamp: 1740267338
+  lastQotdTimestamp: 1740406468
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/unityBundleFeb25.png
     topText: Unity 95% OFF on 3 BUNDLES! If just one asset looks interesting then
@@ -54,11 +35,11 @@ MonoBehaviour:
     topLink: unityassetstore
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1740267338
+  lastDynamicHeaderTimestamp: 1740406468
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/tictactoenfefree">I just published my latest
       FREE course! Click here!</a>
-  websiteLatestMessageTimestamp: 1740267338
+  websiteLatestMessageTimestamp: 1740406468
   websiteLatestVideos:
     videos:
     - youTubeId: _PIRFWc50qs
@@ -69,4 +50,4 @@ MonoBehaviour:
       title: TOP 10 FREE NEW Assets FEBRUARY 2025!
     - youTubeId: 2H4ouL4bCUs
       title: AI is creating illiterate programmers! (you?)
-  websiteLatestVideosTimestamp: 1740267338
+  websiteLatestVideosTimestamp: 1740406468
