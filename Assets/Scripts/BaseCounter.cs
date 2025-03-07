@@ -13,6 +13,11 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
         Debug.Log("Interact");
     }
     
+    public virtual void InteractAlternate(Player player)
+    {
+        Debug.Log("Interact diferent");
+    }
+    
     public Transform GetKitchenObjectFollowTransform()
     {
         return spawnPoint;
