@@ -113,7 +113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2593515588247517162}
-  cuttingObject: {fileID: 11400000, guid: f6e5ebe88a1521e43b81dee8cbe1e3ae, type: 2}
+  cuttingObjectArray:
+  - {fileID: 11400000, guid: f9816d77e0ee0254db5e0ba304f29795, type: 2}
+  - {fileID: 11400000, guid: 03c6bda861cfa2943a1022f73192ad4f, type: 2}
+  - {fileID: 11400000, guid: 091ba5844e7230f4a8b498c099e981c6, type: 2}
 --- !u!4 &3210220226301362099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3156425867048045406, guid: e42b0828d31b2f94792c3132f81a31cf,
