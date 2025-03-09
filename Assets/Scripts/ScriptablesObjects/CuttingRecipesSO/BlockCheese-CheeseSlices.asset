@@ -15,3 +15,4 @@ MonoBehaviour:
   inputKitchenObject: {fileID: 11400000, guid: d799e535756ed6844a5ec577f47dbf6e, type: 2}
   outputKitchenObject: {fileID: 11400000, guid: b20a15ffb6eae0e4ca2787d86d75b9cd,
     type: 2}
+  cuttingToBeSliced: 4

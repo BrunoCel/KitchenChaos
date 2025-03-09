@@ -72,7 +72,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Counter
       value: 
-      objectReference: {fileID: 581641263408020411}
+      objectReference: {fileID: 5140152533750046257}
     - target: {fileID: 4756217122421998426, guid: e42b0828d31b2f94792c3132f81a31cf,
         type: 3}
       propertyPath: counterVisual.Array.data[0]
@@ -81,20 +81,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3341948237582795240, guid: e42b0828d31b2f94792c3132f81a31cf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5140152533750046257}
   m_SourcePrefab: {fileID: 100100000, guid: e42b0828d31b2f94792c3132f81a31cf, type: 3}
---- !u!114 &581641263408020411 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1984664623008684077, guid: e42b0828d31b2f94792c3132f81a31cf,
+--- !u!4 &3974299318231933073 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2647864227789390599, guid: e42b0828d31b2f94792c3132f81a31cf,
     type: 3}
   m_PrefabInstance: {fileID: 1412043754068730774}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!1 &4465436021526291070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3341948237582795240, guid: e42b0828d31b2f94792c3132f81a31cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412043754068730774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5140152533750046257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465436021526291070}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1921c354003a4db4b9a00951fb0522dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 3974299318231933073}
 --- !u!1 &8504539743479649758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7322474239541950024, guid: e42b0828d31b2f94792c3132f81a31cf,
