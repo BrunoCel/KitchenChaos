@@ -24,7 +24,6 @@ public class TrashCounter : BaseCounter
 
     public void DiscardKitchenObject()
     {
-        GetKitchenObject().GetClearIKitchenObjectParent();
         GetKitchenObject().DestroyKitchenObject();
     }
 }

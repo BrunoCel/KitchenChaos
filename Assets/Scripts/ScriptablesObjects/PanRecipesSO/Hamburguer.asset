@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d0ec01176805541b52dc1e99b27f92, type: 3}
+  m_Name: Hamburguer
+  m_EditorClassIdentifier: 
+  inputKitchenObject: {fileID: 11400000, guid: 676fe7d3b8e00b94496e4d7f6f3363ce, type: 2}
+  outputKitchenObject: {fileID: 11400000, guid: e551df3a02c23dc41809eef65c6b2786,
+    type: 2}
+  outputKitchenObjectBurned: {fileID: 11400000, guid: 75ef6616f7347af448f62bbb8f39d681,
+    type: 2}
+  TimeToBeFried: 5
+  TimeToBurn: 5
