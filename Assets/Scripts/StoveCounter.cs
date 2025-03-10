@@ -6,9 +6,14 @@ using UnityEngine;
 public class StoveCounter : BaseCounter
 {
 
-   public event EventHandler PutIn;
-   public event EventHandler PutOff;
-   private enum State
+   public event EventHandler<OnStateChangedArgs> OnStateChanged;
+
+   public class OnStateChangedArgs : EventArgs
+   {
+      public State state;
+   }
+   
+   public enum State
    {
       Idle,
       Frying,
@@ -45,7 +50,9 @@ public class StoveCounter : BaseCounter
                    GetKitchenObject().DestroyKitchenObject();
 
                    KitchenObject.SpawnKitchenObject(panRecipesSo.outputKitchenObject, this);
+                   
                    state = State.Fried;
+                   OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = state });
                    burningTimer = 0f;
                 }
 
@@ -57,6 +64,7 @@ public class StoveCounter : BaseCounter
                    GetKitchenObject().DestroyKitchenObject();
                    KitchenObject.SpawnKitchenObject(panRecipesSo.outputKitchenObjectBurned, this);
                    state = State.Burned;
+                   OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = state });
                 }
                 
                 break;
@@ -78,12 +86,13 @@ public class StoveCounter : BaseCounter
             if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                //player is carry something that could be fried
             {
-               PutIn?.Invoke(this, EventArgs.Empty);
+               
                player.GetKitchenObject().SetKitcheObjectParent(this);
                
                panRecipesSo = GetPanRecipeSO(GetKitchenObject().GetKitchenObjectSO());
 
                state = State.Frying;
+               OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = state });
                fryingTimer = 0;
 
             }
@@ -94,9 +103,10 @@ public class StoveCounter : BaseCounter
          if (!player.HasKitchenObject())
          {
            // PanRecipesSO cuttingRecipe = GetPanRecipeSO(GetKitchenObject().GetKitchenObjectSO());
-            PutOff?.Invoke(this, EventArgs.Empty);
+            
             GetKitchenObject().SetKitcheObjectParent(player);
             state = State.Idle;
+            OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = state });
             fryingTimer = 0;
             burningTimer = 0;
          }

@@ -9,23 +9,18 @@ public class StoveCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        stoveCounter.PutIn += TurnOn;
-        stoveCounter.PutOff += TurnOff;
+        stoveCounter.OnStateChanged += OnStateChanged_OnStoveCounter;
+        
     }
 
-    public void TurnOn(object sender, System.EventArgs e)
+    public void OnStateChanged_OnStoveCounter(object sender, StoveCounter.OnStateChangedArgs args)
     {
+        bool showVisual = args.state == StoveCounter.State.Frying || args.state == StoveCounter.State.Fried;
         for (int i = 0; i < stoveCounters.Length; i++)
         {
-            stoveCounters[i].SetActive(true);
+            stoveCounters[i].SetActive(showVisual);
         }   
     }
 
-    public void TurnOff(object sender, System.EventArgs e)
-    {
-        for (int i = 0; i < stoveCounters.Length; i++)
-        {
-            stoveCounters[i].SetActive(false);
-        }
-    }
+    
 }
