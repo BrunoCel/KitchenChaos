@@ -8,10 +8,17 @@ public class ProgressBarUI : MonoBehaviour
     [SerializeField] private GameObject[] bars;
     [SerializeField] private Image progressBar;
     [SerializeField] private CuttingCounter cuttingCounter;
+    [SerializeField] private GameObject hasProgressBar;
+    [SerializeField] private IHasProgress counter;
     void Start()
     {
-        cuttingCounter.PlayerGrabbedKitchenObject += StopCuttigProgress;
-        cuttingCounter.OnCut += CuttingProgress_OnCut;
+        counter = hasProgressBar.GetComponent<IHasProgress>();
+        if (cuttingCounter != null)
+        {
+            cuttingCounter.PlayerGrabbedKitchenObject += StopCuttigProgress;
+        }
+
+        counter.OnProgressChanged += CuttingProgressOnProgressChanged;
         progressBar.fillAmount = 0;
         Hide();
     }
@@ -22,7 +29,7 @@ public class ProgressBarUI : MonoBehaviour
         Hide();
     }
 
-    private void CuttingProgress_OnCut(object sender, CuttingCounter.OnProgressChangedArgs e)
+    private void CuttingProgressOnProgressChanged(object sender, IHasProgress.OnProgressChangedArgs e)
     {
         progressBar.fillAmount = e.progressNormalized;
 
