@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StoveCounter : BaseCounter , IHasProgress
@@ -113,6 +111,23 @@ public class StoveCounter : BaseCounter , IHasProgress
             fryingTimer = 0;
             burningTimer = 0;
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedArgs() { progressNormalized = fryingTimer / panRecipesSo.TimeToBeFried  });
+         }
+         else
+         {
+            if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+            {
+               if (plateKitchenObject.TryAddIngridient(GetKitchenObject().GetKitchenObjectSO()))
+               {
+                  Debug.Log("Item adicionado ao prato");
+                  GetKitchenObject().DestroyKitchenObject();
+                  
+                  OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = State.Idle });
+                  fryingTimer = 0;
+                  burningTimer = 0;
+                  OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedArgs() { progressNormalized = fryingTimer / panRecipesSo.TimeToBeFried  });
+               }
+            }
+            
          }
       }
       

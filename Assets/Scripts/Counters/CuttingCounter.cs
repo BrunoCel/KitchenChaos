@@ -42,6 +42,18 @@ public class CuttingCounter : BaseCounter,IHasProgress
             cuttingCounter = 0;
             PlayerGrabbedKitchenObject?.Invoke(this, EventArgs.Empty);
          }
+         else
+         {
+            if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+            {
+               if (plateKitchenObject.TryAddIngridient(GetKitchenObject().GetKitchenObjectSO()))
+               {
+                  Debug.Log("Item adicionado ao prato");
+                  GetKitchenObject().DestroyKitchenObject();
+               }
+            }
+               
+         }
       }
       
    }
