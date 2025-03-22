@@ -120,8 +120,8 @@ public class StoveCounter : BaseCounter , IHasProgress
                {
                   Debug.Log("Item adicionado ao prato");
                   GetKitchenObject().DestroyKitchenObject();
-                  
-                  OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = State.Idle });
+                  state = State.Idle;
+                  OnStateChanged?.Invoke(this, new OnStateChangedArgs { state = state });
                   fryingTimer = 0;
                   burningTimer = 0;
                   OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedArgs() { progressNormalized = fryingTimer / panRecipesSo.TimeToBeFried  });

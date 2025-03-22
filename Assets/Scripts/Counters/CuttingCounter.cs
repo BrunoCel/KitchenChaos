@@ -50,6 +50,8 @@ public class CuttingCounter : BaseCounter,IHasProgress
                {
                   Debug.Log("Item adicionado ao prato");
                   GetKitchenObject().DestroyKitchenObject();
+                  cuttingCounter = 0;
+                  PlayerGrabbedKitchenObject?.Invoke(this, EventArgs.Empty);
                }
             }
                
