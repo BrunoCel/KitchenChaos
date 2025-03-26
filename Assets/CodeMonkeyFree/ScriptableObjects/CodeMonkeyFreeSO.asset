@@ -14,39 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1742668119
+  lastShownTimestamp: 1743002023
   lastUpdateResponse:
-    version: 1.00
+    version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1742668119
+  checkedLastUpdateTimestamp: 1743002023
   lastQOTDResponse:
-    questionId: 163
-    questionText: What is the purpose of Unity Hub?
-    answerA: Provide a space for the community to interact
-    answerB: Manage different Unity versions and Projects
-    answerC: Dashboard for Unity services
-    answerD: 
+    questionId: 164
+    questionText: What is the correct way to show a variable in the Editor?
+    answerA: public int health;
+    answerB: public static int health;
+    answerC: '[SerializeField] private int health;'
+    answerD: private int health;
     answerE: 
-  lastQotdTimestamp: 1742668119
+  lastQotdTimestamp: 1743002024
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25.png
-    topText: Make ANY game with these awesome Assets! (96% OFF ENDS SOON!)
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25EndSoon.png
+    topText: Make ANY game with these awesome Assets! (97% OFF ENDS SOON!)
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1742668119
+  lastDynamicHeaderTimestamp: 1743002024
   websiteLatestMessage:
-    text: <a href="https://cmonkey.co/tictactoenfefree">I just published my latest
-      FREE course! Click here!</a>
-  websiteLatestMessageTimestamp: 1742668119
+    text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
+      Click here!</a>
+  websiteLatestMessageTimestamp: 1743002024
   websiteLatestVideos:
     videos:
+    - youTubeId: 2-B1HH0rWRI
+      title: EVERYTHING Steam did in 2024! (Devs NEED to Know)
+    - youTubeId: QYrKiHq7Vaw
+      title: TOP 10 NEW Systems and Tools MARCH 2025! | Unity Asset Store
+    - youTubeId: ZIg7VoD9ptI
+      title: The FUTURE of Unity in 2025 and BEYOND!
     - youTubeId: W_XOZAWJF24
       title: I made the MOST PROFITABLE Game as a Test!
-    - youTubeId: J0KMvH-yFmA
-      title: TOP 10 NEW Games, Made with Unity! (FEBRUARY 2025)
-    - youTubeId: DOSLOa7cnoE
-      title: I SHOULD have done this a long time ago, and YOU too!
-    - youTubeId: luFBmRyzZow
-      title: The 5 TRENDS shaping Game Development in 2025!
-  websiteLatestVideosTimestamp: 1742668119
+  websiteLatestVideosTimestamp: 1743002024
