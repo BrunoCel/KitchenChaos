@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1743002023
+  lastShownTimestamp: 1743111265
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1743002023
+  checkedLastUpdateTimestamp: 1743111265
   lastQOTDResponse:
     questionId: 164
     questionText: What is the correct way to show a variable in the Editor?
@@ -27,18 +27,18 @@ MonoBehaviour:
     answerC: '[SerializeField] private int health;'
     answerD: private int health;
     answerE: 
-  lastQotdTimestamp: 1743002024
+  lastQotdTimestamp: 1743111265
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25EndSoon.png
     topText: Make ANY game with these awesome Assets! (97% OFF ENDS SOON!)
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1743002024
+  lastDynamicHeaderTimestamp: 1743111265
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1743002024
+  websiteLatestMessageTimestamp: 1743111265
   websiteLatestVideos:
     videos:
     - youTubeId: 2-B1HH0rWRI
@@ -49,4 +49,4 @@ MonoBehaviour:
       title: The FUTURE of Unity in 2025 and BEYOND!
     - youTubeId: W_XOZAWJF24
       title: I made the MOST PROFITABLE Game as a Test!
-  websiteLatestVideosTimestamp: 1743002024
+  websiteLatestVideosTimestamp: 1743111265
