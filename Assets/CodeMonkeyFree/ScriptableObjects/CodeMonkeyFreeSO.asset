@@ -14,39 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1743111265
+  lastShownTimestamp: 1743209569
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1743111265
+  checkedLastUpdateTimestamp: 1743209569
   lastQOTDResponse:
-    questionId: 164
-    questionText: What is the correct way to show a variable in the Editor?
-    answerA: public int health;
-    answerB: public static int health;
-    answerC: '[SerializeField] private int health;'
-    answerD: private int health;
+    questionId: 165
+    questionText: 'Does this variable get reset when you load a different Scene?
+
+      <p>private
+      static int score;</p>'
+    answerA: Yes
+    answerB: No
+    answerC: Only when loading the Main Menu
+    answerD: 
     answerE: 
-  lastQotdTimestamp: 1743111265
+  lastQotdTimestamp: 1743209569
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25EndSoon.png
-    topText: Make ANY game with these awesome Assets! (97% OFF ENDS SOON!)
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25Extended.png
+    topText: Make ANY game with these awesome Assets! (97% OFF!)
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1743111265
+  lastDynamicHeaderTimestamp: 1743209569
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1743111265
+  websiteLatestMessageTimestamp: 1743209569
   websiteLatestVideos:
     videos:
+    - youTubeId: SJClo9ny1kM
+      title: TOP 20 Visual Assets to INSPIRE YOU! (MARCH 2025)
     - youTubeId: 2-B1HH0rWRI
       title: EVERYTHING Steam did in 2024! (Devs NEED to Know)
     - youTubeId: QYrKiHq7Vaw
       title: TOP 10 NEW Systems and Tools MARCH 2025! | Unity Asset Store
     - youTubeId: ZIg7VoD9ptI
       title: The FUTURE of Unity in 2025 and BEYOND!
-    - youTubeId: W_XOZAWJF24
-      title: I made the MOST PROFITABLE Game as a Test!
-  websiteLatestVideosTimestamp: 1743111265
+  websiteLatestVideosTimestamp: 1743209569
