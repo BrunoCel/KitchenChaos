@@ -33,7 +33,7 @@ public class DeliveyManager : MonoBehaviour
             if (waitingRecipesSOList.Count < waitingRecipesMax)
             {
                 RecipeSO _waitingRecipeSO = recipeSOList.recipes[UnityEngine.Random.Range(0, recipeSOList.recipes.Count)];
-                Debug.Log(_waitingRecipeSO.name);
+                //Debug.Log(_waitingRecipeSO.name);
                 waitingRecipesSOList.Add(_waitingRecipeSO);
                 OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
@@ -70,8 +70,8 @@ public class DeliveyManager : MonoBehaviour
                 if (plateContentsMatchesRecipe)
                 {
                     Debug.Log("Player Delivered the correct recipe");
-                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     waitingRecipesSOList.RemoveAt(i);
+                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
