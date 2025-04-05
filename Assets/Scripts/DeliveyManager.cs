@@ -9,6 +9,8 @@ public class DeliveyManager : MonoBehaviour
 {
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeSuccess;
+    public event EventHandler OnRecipeFailed;
     
     public static DeliveyManager instance{get; private set;}
     [SerializeField] RecipeListSO recipeSOList;
@@ -49,33 +51,36 @@ public class DeliveyManager : MonoBehaviour
             if (waitingRecipesSo.KitchenObjectsList.Count == _plateKitchenObject.GetKitchenObjectsList().Count)
             {
                 bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO recipeKitchenObject in _plateKitchenObject.GetKitchenObjectsList())
+                foreach (KitchenObjectSO recipeKitchenObject in waitingRecipesSo.KitchenObjectsList)//cycling through all ingridients at the recipe
                 {
                     bool ingridientFound = false;
-                    foreach (KitchenObjectSO plateKitchenObject in _plateKitchenObject.GetKitchenObjectsList())
+                    foreach (KitchenObjectSO plateKitchenObject in _plateKitchenObject.GetKitchenObjectsList())//cycling through all ingridients at the plate
                     {
-                        if (plateKitchenObject == recipeKitchenObject)
+                        if (plateKitchenObject == recipeKitchenObject)// if the ingridient on the matches the ingridient on the recipe
                         {
                             ingridientFound = true;
                             break;
                         }
+                        
                     }
-
                     if (!ingridientFound)
                     {
                         plateContentsMatchesRecipe = false;
+                        
                     }
                 }
-
                 if (plateContentsMatchesRecipe)
                 {
-                    Debug.Log("Player Delivered the correct recipe");
+                    Debug.Log("Player Delivered the correct recipe!");
                     waitingRecipesSOList.RemoveAt(i);
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
         }
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+        Debug.Log("Wrong Recipe!!!");
     }
 
     public List<RecipeSO> GetWaitingRecipesSOList()

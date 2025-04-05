@@ -6,6 +6,7 @@ using UnityEngine.Video;
 
 public class CuttingCounter : BaseCounter,IHasProgress
 {
+   public static event EventHandler OnAnyCut;
    public event EventHandler<IHasProgress.OnProgressChangedArgs> OnProgressChanged;
    
 
@@ -70,6 +71,7 @@ public class CuttingCounter : BaseCounter,IHasProgress
             CuttingRecipeSO cuttingRecipe = GetCuttingRecipeSO(GetKitchenObject().GetKitchenObjectSO());
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedArgs() { progressNormalized = (float)cuttingCounter / cuttingRecipe.cuttingToBeSliced  });
             IsCutting?.Invoke(this, new EventArgs());
+            OnAnyCut?.Invoke(this, EventArgs.Empty);
 
             if (cuttingCounter >= GetCuttingRecipeSO(GetKitchenObject().GetKitchenObjectSO()).cuttingToBeSliced)
             {
