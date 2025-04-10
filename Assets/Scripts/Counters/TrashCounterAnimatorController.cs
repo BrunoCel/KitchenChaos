@@ -5,7 +5,6 @@ using UnityEngine;
 public class TrashCounterAnimatorController : MonoBehaviour
 {
     private const string DISCARD = "Discard";
-    [SerializeField] private TrashCounter trashCounter;
     private Animator animator;
     private void Awake()
     {
@@ -14,7 +13,7 @@ public class TrashCounterAnimatorController : MonoBehaviour
 
     void Start()
     {
-        trashCounter.OnDiscard += TrashCounter_OnPlayerDiscardObject;
+        TrashCounter.OnDiscard += TrashCounter_OnPlayerDiscardObject;
     }
 
     private void TrashCounter_OnPlayerDiscardObject(object sender, System.EventArgs e)

@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class TrashCounter : BaseCounter
 {
-    public event EventHandler OnDiscard;
+    public static event EventHandler OnDiscard;
+    
     public override void Interact(Player player)
     {
         if (!HasKitchenObject())

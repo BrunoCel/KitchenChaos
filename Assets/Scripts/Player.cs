@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour , IKitchenObjectParent
 {
     public static Player Instance {get; private set;}
+    public event EventHandler OnPickedSomething; 
+     
     public event EventHandler <OnSelectedCounterChangedEventArgs>OnSelectedCounterChanged;
 
     public class OnSelectedCounterChangedEventArgs : EventArgs
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
+        if (!GameManager.instance.IsGamePlaying()) return;
         if (selectedClearCounter != null)
         {
             selectedClearCounter.InteractAlternate(this);
@@ -57,7 +60,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-       
+        if (!GameManager.instance.IsGamePlaying()) return;
             if (selectedClearCounter != null)
             {
                 selectedClearCounter.Interact(this);
@@ -127,39 +130,43 @@ public class Player : MonoBehaviour , IKitchenObjectParent
 
     private void HandleInteractions()
     {
-        Vector2 inputVector2 = gameInput.GetMovementVectorNormalized();
         
-        Vector3 moveDirection = new Vector3(inputVector2.x, 0, inputVector2.y);
+            Vector2 inputVector2 = gameInput.GetMovementVectorNormalized();
 
-        if (moveDirection != Vector3.zero)
-        {
-            lastInteractPosition = moveDirection;
-        }
+            Vector3 moveDirection = new Vector3(inputVector2.x, 0, inputVector2.y);
 
-        if (Physics.Raycast(transform.position,lastInteractPosition, out RaycastHit raycastHit, interactDistance, interactableLayers))
-        {
-            if (raycastHit.transform.TryGetComponent(out BaseCounter clearCounter))
+            if (moveDirection != Vector3.zero)
             {
-                if (clearCounter != selectedClearCounter)
+                lastInteractPosition = moveDirection;
+            }
+
+            if (Physics.Raycast(transform.position, lastInteractPosition, out RaycastHit raycastHit, interactDistance,
+                    interactableLayers))
+            {
+                if (raycastHit.transform.TryGetComponent(out BaseCounter clearCounter))
                 {
-                    SetSelectedCounter(clearCounter); 
+                    if (clearCounter != selectedClearCounter)
+                    {
+                        SetSelectedCounter(clearCounter);
+                    }
+                }
+                else
+                {
+                    SetSelectedCounter(null);
                 }
             }
             else
             {
                 SetSelectedCounter(null);
             }
-        }
-        else
-        {
-             SetSelectedCounter(null);
-        }
 
-        void SetSelectedCounter(BaseCounter selectedCounter)
-        {
-            this.selectedClearCounter = selectedCounter;
-            OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs { selectedCounter = selectedClearCounter });
-        }
+            void SetSelectedCounter(BaseCounter selectedCounter)
+            {
+                this.selectedClearCounter = selectedCounter;
+                OnSelectedCounterChanged?.Invoke(this,
+                    new OnSelectedCounterChangedEventArgs { selectedCounter = selectedClearCounter });
+            }
+        
     }
 
     public Transform GetKitchenObjectFollowTransform()
@@ -170,6 +177,10 @@ public class Player : MonoBehaviour , IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
+        if (kitchenObject != null)
+        {
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public KitchenObject GetKitchenObject()
@@ -180,6 +191,7 @@ public class Player : MonoBehaviour , IKitchenObjectParent
     public void ClearKitchenObject()
     {
         kitchenObject = null;
+        
     }
 
     public bool HasKitchenObject()
