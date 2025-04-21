@@ -14,47 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1744289355
+  lastShownTimestamp: 1745192288
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1744289355
+  checkedLastUpdateTimestamp: 1745192288
   lastQOTDResponse:
-    questionId: 169
-    questionText: 'What is the Color on the SpriteRenderer after running this code?
-
-      <p>Color
-      myColor = Color.red;</p>
-
-      <p>spriteRenderer.color = myColor;</p>
-
-      <p>myColor
-      = Color.blue;</p>'
-    answerA: Red
-    answerB: Blue
-    answerC: Don't Know
+    questionId: 172
+    questionText: Where are PlayerPrefs actually saved on Windows?
+    answerA: Game install folder
+    answerB: User data
+    answerC: Registry
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1744289355
+  lastQotdTimestamp: 1745192288
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleEnvironmentsApr25.png
-    topText: Gorgeous Realistic and Stylized Environments at 99% OFF!
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleApr25GUI.png
+    topText: Awesome Giant UI pack! Definitely get it to get a giant library of UI
+      elements 97% OFF!
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1744289355
+  lastDynamicHeaderTimestamp: 1745192288
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1744289355
+  websiteLatestMessageTimestamp: 1745192288
   websiteLatestVideos:
     videos:
+    - youTubeId: WMYY2GBjdcE
+      title: AWESOME Assets 70% OFF! (Make something FUN with the Spring Sale!)
+    - youTubeId: TZtbhCoff9Y
+      title: I found a MAGICAL GitHub project! (FREE Desktop in Unity!)
+    - youTubeId: aYKnB1OWuYA
+      title: TONS of AWESOME Assets up to 99% OFF! (Multiple Bundles and Spring Sales)
     - youTubeId: zgJHRiounHs
       title: The Problem of Making more MONEY with Assets than Games
-    - youTubeId: wejUWjCVW94
-      title: The 10 BEST Game Dev Beginner Projects to Make!
-    - youTubeId: 79an2JDe51g
-      title: NO MORE PROGRAMMING, let's do Pen Spinning instead!
-    - youTubeId: BR1HFAj2v-Y
-      title: This GAME made $28 MILLION! Why?
-  websiteLatestVideosTimestamp: 1744289355
+  websiteLatestVideosTimestamp: 1745192288
