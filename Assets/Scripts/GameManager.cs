@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private float waitingToStartTimer = 1f;
     private float CountdownToStartTimer = 3f;
     private float GamePlayingTimer;
-    private float GamePlayingTimerMax = 10f;
+    private float GamePlayingTimerMax = 120f;
     private int recipesDeliveredCount = 0;
 
     public event EventHandler OnStateGhanged;
