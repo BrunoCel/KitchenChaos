@@ -11,9 +11,14 @@ public class GameManager : MonoBehaviour
     private float CountdownToStartTimer = 3f;
     private float GamePlayingTimer;
     private float GamePlayingTimerMax = 120f;
+
     private int recipesDeliveredCount = 0;
 
+    private bool isGamePaused = false;
+
     public event EventHandler OnStateGhanged;
+    public event EventHandler OnGamePaused;
+    public event EventHandler OnGameUnpaused;
     private enum State
     {
         WaitingToStart,
@@ -31,7 +36,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DeliveyManager.instance.OnRecipeSuccess += RightPlateDelivered;
+        GameInput.instance.OnPauseAction += PlayerPausedTheGame;
     }
+
+    private void PlayerPausedTheGame(object sender, EventArgs e)
+    {
+        TogglePauseGame();
+    }
+
+   
 
     private void RightPlateDelivered(object sender, EventArgs e)
     {
@@ -110,5 +123,21 @@ public class GameManager : MonoBehaviour
     public void PlayerDeliveredPlate()
     {
         recipesDeliveredCount++;
+    }
+
+    private void TogglePauseGame()
+    {
+        isGamePaused = !isGamePaused;
+        if (isGamePaused) 
+        {
+            OnGameUnpaused?.Invoke(this,EventArgs.Empty);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            OnGamePaused?.Invoke(this, EventArgs.Empty);
+            Time.timeScale = 0f;
+        }
+        
     }
 }
