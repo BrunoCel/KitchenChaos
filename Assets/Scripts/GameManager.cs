@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
         recipesDeliveredCount++;
     }
 
-    private void TogglePauseGame()
+    public void TogglePauseGame()
     {
         isGamePaused = !isGamePaused;
         if (isGamePaused) 

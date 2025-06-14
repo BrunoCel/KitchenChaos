@@ -27,4 +27,9 @@ public class TrashCounter : BaseCounter
     {
         GetKitchenObject().DestroyKitchenObject();
     }
+
+   new public static void ClearStaticData()
+    {
+        OnDiscard = null;
+    }
 }
