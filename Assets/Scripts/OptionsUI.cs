@@ -32,6 +32,8 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactAltText;
     [SerializeField] private TextMeshProUGUI pauseText;
 
+    [SerializeField] private Transform pressToRebindVisualUI;
+
     private void Awake()
     {
         Instance = this;
@@ -48,6 +50,21 @@ public class OptionsUI : MonoBehaviour
         closeButton.onClick.AddListener(() => {
             Hide();        
         });
+
+        moveUpButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.MoveUp); });
+
+        moveDownButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.MoveDown); });
+
+        moveLeftButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.MoveLeft); });
+
+        moveRightButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.MoveRight); });
+
+
+        interactButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.Interact); });
+
+        interactAltButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.InteractAlternate); });
+
+        pauseButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.Pause); });
     }
 
     private void Start()
@@ -86,4 +103,24 @@ public class OptionsUI : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    private void ShowRebindFeedbackTextUI()
+    {
+        pressToRebindVisualUI.gameObject.SetActive(true);
+    }
+
+    private void HideRebindFeedbackTextUI()
+    {
+        pressToRebindVisualUI.gameObject.SetActive(false);
+    }
+
+    private void RebindKey(GameInput.Bindings binding)
+    {
+        ShowRebindFeedbackTextUI();
+        GameInput.instance.RebindingBindings(binding, () =>
+        {
+            HideRebindFeedbackTextUI();
+            UPdateVisual();
+        }
+        );
+    }
 }

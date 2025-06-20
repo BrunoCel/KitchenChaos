@@ -8,6 +8,8 @@ public class GameInput : MonoBehaviour
 {
   public static GameInput instance { get; private set; }
 
+    private const string PLAYER_PREFS_BINDINGS = "InputBinding";
+
   private PlayerInputActions playerInputActions;
   public event EventHandler OnInteractAction;
   public event EventHandler OnInteractAlternateAction;
@@ -26,15 +28,23 @@ public class GameInput : MonoBehaviour
 
   private void Awake()
   {
+        
     instance = this;
     playerInputActions= new PlayerInputActions();
+
+    if (PlayerPrefs.HasKey(PLAYER_PREFS_BINDINGS))
+    {
+        playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
+    }
+        
     playerInputActions.Player.Enable();
 
     playerInputActions.Player.Interact.performed += Interact_performed;
     playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
     playerInputActions.Player.Pause.performed += Pause_performed;
 
-    Debug.Log(GetBindingText(Bindings.Interact));   
+    Debug.Log(GetBindingText(Bindings.Interact));
+       
   }
 
     private void OnDestroy()
@@ -107,5 +117,66 @@ public class GameInput : MonoBehaviour
             
 
         }
+    }
+
+    public void RebindingBindings(Bindings binding, Action onRebound)
+    {
+        playerInputActions.Player.Move.Disable();
+
+        InputAction inputAction;
+        int bindingIndex;
+
+        switch (binding)
+        {
+            default:
+
+            case Bindings.MoveUp:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 1;
+                break;
+
+            case Bindings.MoveDown:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 2;
+                break;
+
+            case Bindings.MoveLeft:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 3;
+                break;
+
+            case Bindings.MoveRight:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 4;
+                break;
+
+            case Bindings.Interact:
+                inputAction = playerInputActions.Player.Interact;
+                bindingIndex = 0;
+                break;
+            case Bindings.InteractAlternate:
+                inputAction = playerInputActions.Player.InteractAlternate;
+                bindingIndex = 0;
+                break;
+            case Bindings.Pause:
+                inputAction = playerInputActions.Player.Pause;
+                bindingIndex = 0;
+                break;
+
+        }
+
+        inputAction.Disable();
+
+        inputAction.PerformInteractiveRebinding(bindingIndex)
+            .OnComplete(callback => {
+                callback.Dispose();
+                playerInputActions.Player.Enable();
+                onRebound();
+
+                
+                PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
+                PlayerPrefs.Save();
+            })
+            .Start();
     }
 }
