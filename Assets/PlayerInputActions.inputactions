@@ -158,7 +158,7 @@
                     "id": "edc7be58-f6be-4135-b68a-4ae411be4bed",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=0.5)",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
@@ -178,7 +178,7 @@
                 {
                     "name": "",
                     "id": "5a230ecd-704e-4c32-b7d0-cfb267d21b3c",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -199,8 +199,30 @@
                 },
                 {
                     "name": "",
+                    "id": "2b542b31-737f-46a6-b5f1-16692427da0f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InteractAlternate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "88ed6458-b173-45eb-8cbd-e2853345ecea",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25c618df-9a07-4ff4-9b23-8447541c17f2",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
