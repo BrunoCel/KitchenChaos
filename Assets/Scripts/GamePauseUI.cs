@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GamePauseUI : MonoBehaviour
 {
+    
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button optionsButton;
@@ -13,10 +14,14 @@ public class GamePauseUI : MonoBehaviour
     {
         resumeButton.onClick.AddListener(() => { GameManager.instance.TogglePauseGame(); });
         mainMenuButton.onClick.AddListener(() => { Loader.Load(Loader.SceneName.MainMenuScene); });
-        optionsButton.onClick.AddListener(() => { OptionsUI.Instance.Show(); });
+        optionsButton.onClick.AddListener(() => { hide();
+            OptionsUI.Instance.Show(show);
+        });
+        
     }
     private void Start()
     {
+        
         hide();
         GameManager.instance.OnGamePaused += Gamemanager_OnGamePaused;
         GameManager.instance.OnGameUnpaused += Gamemanager_OnGameUnpaused;
@@ -35,6 +40,7 @@ public class GamePauseUI : MonoBehaviour
     private void show()
     {
         gameObject.SetActive(true);
+        resumeButton.Select();
     }
     private void hide() 
     {

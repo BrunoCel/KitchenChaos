@@ -5,10 +5,14 @@ using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using System;
 
 public class OptionsUI : MonoBehaviour
 {
+    
     public static OptionsUI Instance { get; private set; }
+
+    private Action onCloseButtonAction;
 
     [SerializeField] private Button SFXButton;
     [SerializeField] private Button musicButton;
@@ -54,8 +58,11 @@ public class OptionsUI : MonoBehaviour
             UPdateVisual();
         });
         closeButton.onClick.AddListener(() => {
-            Hide();        
+            onCloseButtonAction();
+            Hide();      
         });
+
+        
 
         moveUpButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.MoveUp); });
 
@@ -71,6 +78,12 @@ public class OptionsUI : MonoBehaviour
         interactAltButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.InteractAlternate); });
 
         pauseButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.Pause); });
+
+        gamepadInteractButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.Gamepad_Interact); });
+
+        gamepadInteractAltButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.Gamepad_InteractAlternate); });
+
+        gamepadPauseButton.onClick.AddListener(() => { RebindKey(GameInput.Bindings.Gamepad_Pause); });
     }
 
     private void Start()
@@ -97,16 +110,23 @@ public class OptionsUI : MonoBehaviour
         interactText.text = GameInput.instance.GetBindingText(GameInput.Bindings.Interact);
         interactAltText.text = GameInput.instance.GetBindingText(GameInput.Bindings.InteractAlternate);
         pauseText.text = GameInput.instance.GetBindingText(GameInput.Bindings .Pause);
+        gamePadinteractText.text = GameInput.instance.GetBindingText(GameInput.Bindings.Gamepad_Interact);
+        gamepadInteractAltText.text = GameInput.instance.GetBindingText(GameInput.Bindings.Gamepad_InteractAlternate);
+        gamepadPauseText.text = GameInput.instance.GetBindingText(GameInput.Bindings.Gamepad_Pause);
     }
 
-    public void Show()
+    public void Show(Action onCloseButtonAction)
     {
+        this.onCloseButtonAction = onCloseButtonAction;
         this.gameObject.SetActive(true);
+        SFXButton.Select();
     }
 
     public void Hide()
     {
+        
         this.gameObject.SetActive(false);
+        
     }
 
     private void ShowRebindFeedbackTextUI()
