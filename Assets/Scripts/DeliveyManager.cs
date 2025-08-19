@@ -32,7 +32,7 @@ public class DeliveyManager : MonoBehaviour
         if (spawRecipeTimer <= 0f)
         {
             spawRecipeTimer = spawnRecipeTimerMax;
-            if (waitingRecipesSOList.Count < waitingRecipesMax)
+            if (GameManager.instance.IsGamePlaying() && waitingRecipesSOList.Count < waitingRecipesMax)
             {
                 RecipeSO _waitingRecipeSO = recipeSOList.recipes[UnityEngine.Random.Range(0, recipeSOList.recipes.Count)];
                 //Debug.Log(_waitingRecipeSO.name);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,8 +23,18 @@ public class TutorialUI : MonoBehaviour
     private void Start()
     {
         GameInput.instance.OnbindingRebinding += Instance_OnbindingRebinding;
+        GameManager.instance.OnStateGhanged += HideTutorial_onGameChangeState;
         UpdateVisuals();
         Show();
+    }
+
+    private void HideTutorial_onGameChangeState(object sender, EventArgs e)
+    {
+        if (GameManager.instance.IsGameCountingDown())
+        {
+            Hide();
+        }
+            
     }
 
     private void Instance_OnbindingRebinding(object sender, System.EventArgs e)

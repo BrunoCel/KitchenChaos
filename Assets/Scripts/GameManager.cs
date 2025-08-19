@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private State state;
-    private float waitingToStartTimer = 1f;
+    
     private float CountdownToStartTimer = 3f;
     private float GamePlayingTimer;
     private float GamePlayingTimerMax = 120f;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameUnpaused;
     private enum State
     {
+        
         WaitingToStart,
         CountdownToStart,
         GamePlaying,
@@ -37,6 +38,16 @@ public class GameManager : MonoBehaviour
     {
         DeliveyManager.instance.OnRecipeSuccess += RightPlateDelivered;
         GameInput.instance.OnPauseAction += PlayerPausedTheGame;
+        GameInput.instance.OnInteractAction += PlayerCloseTutorial;
+    }
+
+    private void PlayerCloseTutorial(object sender, EventArgs e)
+    {
+        if (state == State.WaitingToStart)
+        {
+            state = State.CountdownToStart;
+            OnStateGhanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void PlayerPausedTheGame(object sender, EventArgs e)
@@ -56,12 +67,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case State.WaitingToStart:
-                waitingToStartTimer -= Time.deltaTime;
-                if (waitingToStartTimer <= 0f)
-                {
-                    state = State.CountdownToStart;
-                    OnStateGhanged?.Invoke(this,EventArgs.Empty);
-                }
+               
                 break;
             
             case State.CountdownToStart:
