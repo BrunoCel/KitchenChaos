@@ -14,39 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1750717464
+  lastShownTimestamp: 1755181607
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1750717464
+  checkedLastUpdateTimestamp: 1755181607
   lastQOTDResponse:
-    questionId: 193
-    questionText: What will happen on January 19, 2038 at 03:14:07?
-    answerA: Armagedon
-    answerB: End of Unix Time
-    answerC: Half-Life 3 release date
+    questionId: 211
+    questionText: Can you modify transform.forward directly to rotate a transform?
+    answerA: Yes
+    answerB: No
+    answerC: 
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1750717464
+  lastQotdTimestamp: 1755181607
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/ultimateOverview70_6FreeUpdate.png
-    topText: Learn how to use 70 Tools and Features! (Unity 6 Updated)
-    topLink: ultimateunityoverview
-    bottomText: My 10+ Years of C# Knowledge in 1 Course!
-    bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1750717464
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/summer2025CodeMonkeyBundle.png
+    topText: All my Courses (and Games) in one Bundle! DEEP DISCOUNT ONLY THIS SUMMER!
+    topLink: summer2025bundle
+    bottomText: Get my Code Monkey Toolkit and make games BETTER and FASTER! 50%
+      OFF right now!
+    bottomLink: toolkit
+  lastDynamicHeaderTimestamp: 1755181607
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1750717464
+  websiteLatestMessageTimestamp: 1755181607
   websiteLatestVideos:
     videos:
-    - youTubeId: iN3Q0RBiWk8
-      title: What do the BEST Programmers do differently?
-    - youTubeId: Nv-pG1v_TaM
-      title: TOP 10 NEW Systems and Tools JUNE 2025! | Unity Asset Store
-    - youTubeId: KrjXYXGdnj8
-      title: How to BREAK your Desktop!
-    - youTubeId: AD5HtjUun5g
-      title: Which Unity Version should you use?
-  websiteLatestVideosTimestamp: 1750717464
+    - youTubeId: taWg92DaORw
+      title: The 5 MUST HAVE Assets you NEED! (SALE ENDS SOON!)
+    - youTubeId: nGKd4yTP3M8
+      title: Learn Unity 2D Beginner FREE COMPLETE Course
+    - youTubeId: 7xz5Xh4E_B0
+      title: I NEED your HELP!
+    - youTubeId: y-w3vnh_f4Q
+      title: Are Old Tutorials OBSOLETE?
+  websiteLatestVideosTimestamp: 1755181607

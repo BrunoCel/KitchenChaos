@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ public class GameInput : MonoBehaviour
   public event EventHandler OnInteractAction;
   public event EventHandler OnInteractAlternateAction;
   public event EventHandler OnPauseAction;
+    public event EventHandler OnbindingRebinding;
 
   public enum Bindings
     {
@@ -201,6 +203,8 @@ public class GameInput : MonoBehaviour
                 
                 PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
                 PlayerPrefs.Save();
+
+                OnbindingRebinding?.Invoke(this, EventArgs.Empty);
             })
             .Start();
     }
