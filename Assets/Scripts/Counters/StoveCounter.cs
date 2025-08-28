@@ -69,7 +69,9 @@ public class StoveCounter : BaseCounter , IHasProgress
                 
                 break;
              case State.Burned:
-                break;
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedArgs() { progressNormalized = burningTimer / panRecipesSo.TimeToBurn });
+                    state = State.Burned;
+                    break;
 
           }
        }
@@ -165,5 +167,9 @@ public class StoveCounter : BaseCounter , IHasProgress
       return null;
    }
    
+    public bool IsFried()
+    {
+        return state == State.Fried;
+    }
 
 }
