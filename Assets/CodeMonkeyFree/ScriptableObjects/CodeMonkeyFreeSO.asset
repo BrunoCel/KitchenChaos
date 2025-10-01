@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1756819754
+  lastShownTimestamp: 1757434680
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1756819754
+  checkedLastUpdateTimestamp: 1757434680
   lastQOTDResponse:
     questionId: 217
     questionText: 'When would this code cause an error?
@@ -46,26 +46,26 @@ MonoBehaviour:
     answerC: When instanceList has exactly two elements
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1756819754
+  lastQotdTimestamp: 1757434680
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleAug25RealisticEnv.png
     topText: AWESOME Realistic Environments 99% OFF!
     topLink: humblebundle
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1756819754
+  lastDynamicHeaderTimestamp: 1757434680
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1756819754
+  websiteLatestMessageTimestamp: 1757434680
   websiteLatestVideos:
     videos:
-    - youTubeId: 8Ym28WJUYnQ
-      title: The BIGGEST Problem in Game Dev!
     - youTubeId: C66iDut3jTM
       title: BEST NEW Visual Assets to INSPIRE YOU!
     - youTubeId: JZHByNNQb3I
       title: 8 QUICK Success and Marketing Tips you NEED to know!
     - youTubeId: FrKLJ1nCsxY
       title: Indie Dev makes $4 MILLION... then goes broke!
-  websiteLatestVideosTimestamp: 1756819754
+    - youTubeId: _fymNH4flZE
+      title: TOP 10 NEW Systems and Tools AUGUST 2025! | Unity Asset Store
+  websiteLatestVideosTimestamp: 1757434680
